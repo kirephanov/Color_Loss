@@ -1,4 +1,5 @@
 from django.contrib import admin
+from django.utils.safestring import mark_safe
 from .models import *
 
 class ProfileAdmin(admin.ModelAdmin):
@@ -11,8 +12,14 @@ class ClanAdmin(admin.ModelAdmin):
     list_display_links = ('id', 'clan_name', 'clan_description', 'clan_is_open')
     search_fields = ('clan_name',)
 
+class ArticleAdmin(admin.ModelAdmin):
+    list_display = ('id', 'article_title', 'article_content', 'article_created_at', 'article_photo')
+    list_display_links = ('id', 'article_title', 'article_content', 'article_created_at', 'article_photo')
+    search_fields = ('article_title',)
+
 admin.site.register(Profile, ProfileAdmin)
 admin.site.register(Clan, ClanAdmin)
+admin.site.register(Article, ArticleAdmin)
 
 admin.site.site_title = 'Color Loss management'
 admin.site.site_header = 'Color Loss management'
