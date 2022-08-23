@@ -37,7 +37,7 @@ class Article(models.Model):
     '''The class displays articles on the website'''
     article_title = models.CharField(max_length=150, verbose_name='Article title')
     article_content = models.TextField(max_length=2500, verbose_name='Article content')
-    article_photo = models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True, verbose_name='Photo')
+    article_photo = models.ImageField(upload_to='photos/%Y/%m/%d/', verbose_name='Photo', blank=True)
     article_created_at = models.DateTimeField(auto_now_add=True, verbose_name='Date of creation')
 
     def __str__(self):

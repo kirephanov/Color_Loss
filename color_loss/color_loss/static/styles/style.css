@@ -318,6 +318,7 @@ body {
 }
 .news-card {
     max-width: 650px;
+    width: 100%;
     border: 2px solid var(--orange);
     border-radius: 4px;
     padding: 10px;
@@ -432,7 +433,9 @@ body {
     text-decoration: none;
 }
 .clan-card {
-    max-width: 650px;
+    /* max-width: 650px;
+    width: 100%; */
+    width: 650px;
     border: 2px solid var(--orange);
     border-radius: 4px;
     padding: 10px;
@@ -748,6 +751,15 @@ body {
     }
 
 }
+@media (max-width: 700px) {
+    /* 
+    * Clans page
+    */
+    .clan-card {
+        max-width: 400px;
+    }
+}
+
 @media (max-width: 640px) {
     /* Page title */
     .page-title {
@@ -889,6 +901,13 @@ body {
     }
     .article__title {
         font-size: 32px;
+    }
+
+    /* 
+    * Clans page
+    */
+    .clan-card {
+        max-width: 250px;
     }
 }
 @media (max-width: 375px) {

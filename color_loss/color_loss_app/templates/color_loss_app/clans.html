@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block content %}
+    <!-- Clans page -->
+    <section>
+        <div class="wrapper">
+            <div class="clans-page__container">
+                <div class="clans-page__title-container">
+                    <h1 class="page-title">
+                        Clans
+                    </h1>
+                    {% if request.user.is_authenticated %}
+                    <a href="{% url 'create_clan' %}" class="create-clan-btn">Create clan</a>
+                    {% else %}
+                    <a href="{% url 'login' %}" class="create-clan-btn">Create clan</a>
+                    {% endif %}
+                </div>
+                <div class="clans-page__content">
+                    {% for item in clans %}
+                    <a href="{% url 'clan' item.pk %}" class="clan-card-link">
+                        <div class="clan-card">
+                            <p class="clan-card__title">
+                                {{ item.clan_name|truncatechars:15 }}
+                            </p>
+                            <p class="clan-card__description">
+                                {{ item.clan_description|safe|linebreaks|truncatewords:5 }}
+                            </p>
+                            {% if item.clan_is_open %}
+                            <p class="clan-card__status-open">
+                                Open
+                            </p>
+                            {% else %}
+                            <p class="clan-card__status-close">
+                                Close
+                            </p>
+                            {% endif %}
+                        </div>
+                    </a>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <!-- Profile page -->
+    <section>
+        <div class="wrapper">
+            <div class="profile-page__container">
+                <h1 class="profile-page__title">
+                    {{ user.username }}
+                </h1>
+                <div class="profile-page__content">
+                    <p class="attribute-name">
+                        Name
+                    </p>
+                    <p class="user-name">
+                        {{ user.username }}
+                    </p>
+                    <p class="attribute-name">
+                        Player Level
+                    </p>
+                    <p class="user-lvl">
+                        {{ user.profile.user_lvl }}
+                    </p>
+                    <p class="attribute-name">
+                        Colors
+                    </p>
+                    <div class="user-colors-container">
+                        <p class="user-colors">
+                            {{ user.profile.user_money }}
+                        </p>
+                        <img src="{% static 'images/Profile/colors.png' %}" alt="" class="user-colors__icon">
+                    </div>
+                    <p class="attribute-name">
+                        Member of a clan
+                    </p>
+                    <p class="user-clan">
+                        {{ user.profile.user_clan }}
+                    </p>
+                    <a href="{% url 'logout' %}" class="user-logout">Log out</a>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

@@ -1,12 +1,69 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    Home
-</body>
-</html>
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <!-- Bunner -->
+    <article>
+        <div class="bunner">
+            <div class="wrapper">
+                <div class="bunner-container">
+                    <button class="bunner__btn">
+                        Play free
+                    </button>
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <!-- Block 1 -->
+    <section>
+        <div class="wrapper">
+            <div class="block1">
+                <div class="block1__info">
+                    <h2 class="block-title">
+                        Gameplay
+                    </h2>
+                    <p class="block1__description">
+                        Consectetur ad id ultricies mollis potenti rhoncus quam, hendrerit mattis nullam, convallis placerat platea nam odio fames varius vitae amet consequat, sodales cubilia posuere amet.
+                    </p>
+                </div>
+                <div class="block1__image">
+                    <img src="{% static 'images/Home/gameplay-img.png' %}" alt="" class="block1__image-img">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Block 2 -->
+    <section>
+        <div class="block2">
+            <div class="wrapper">
+                <h2 class="block-title block-title__light">
+                    Choose your character
+                </h2>
+                <div class="block2__characters">
+                    <div class="block2__characters__item">
+                        <img src="{% static 'images/Home/character1.png' %}" alt="" class="block2__character">
+                    </div>
+                    <div class="block2__characters__item">
+                        <img src="{% static 'images/Home/character2.png' %}" alt="" class="block2__character">
+                    </div>
+                    <div class="block2__characters__item">
+                        <img src="{% static 'images/Home/character3.png' %}" alt="" class="block2__character">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Block 3 -->
+    <section>
+        <div class="wrapper">
+            <div class="block3">
+                <h2 class="block-title">
+                    Customize your character
+                </h2>
+                <div class="block3-img"></div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

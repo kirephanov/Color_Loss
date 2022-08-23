@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+    <!-- Article page -->
+    <section>
+        <div class="wrapper">
+            <div class="article-page__container">
+                <p class="article__date">
+                    {{ article.article_created_at|date:"Y-m-d H:i" }}
+                </p>
+                <h1 class="article__title">
+                    {{ article.article_title }}
+                </h1>
+                <div class="article__photo-container">
+                    {% if article.article_photo %}
+                    <img src="{{ article.article_photo.url }}" alt="" class="aticle__photo">
+                    {% endif %}
+                </div>
+                <div class="article__description__container">
+                    <p class="article__description">
+                        {{ article.article_content|safe|linebreaks }}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

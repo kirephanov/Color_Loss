@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block content %}
+    <!-- Clan page -->
+    <section>
+        <div class="wrapper">
+            <div class="clan-page__container">
+                <h1 class="page-title">
+                    {{ clan.clan_name }}
+                </h1>
+                <div class="clan-page__content">
+                    <p class="attribute-name">
+                        Clan name
+                    </p>
+                    <p class="clan-name">
+                        {{ clan.clan_name }}
+                    </p>
+                    <p class="attribute-name">
+                        Description
+                    </p>
+                    <p class="clan-description">
+                        {{ clan.clan_description}}
+                    </p>
+                    <p class="attribute-name">
+                        Status
+                    </p>
+                    {% if clan.clan_is_open %}
+                    <p class="clan-status clan-status-open">
+                        Open
+                    </p>
+                    {% else %}
+                    <p class="clan-status clan-status-close">
+                        Close
+                    </p>
+                    {% endif %}
+                    <p class="attribute-name">
+                        Members
+                    </p>
+                    <div class="clan-members">
+                        {% for item in user %}
+                        {% if item.profile.user_clan.pk == clan.pk %}
+                        <div class="clan-members__member">
+                            <p class="clan-members__member__name">
+                                {{ item.username }}
+                            </p>
+                        </div>
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

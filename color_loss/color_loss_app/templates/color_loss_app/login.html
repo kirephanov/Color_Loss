@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <!-- Login -->
+    <section>
+        <div class="login-card">
+            <div class="wrapper">
+                <div class="authorization-card">
+                    <div class="authorization-card__item authorization-card__form">
+                        <p class="authorization__title">Login</p>
+                        <div class="authorization__form">
+                            <form method="post">
+                                {% csrf_token %}
+                                <div class="authorization__form-item-container">
+                                    <label for="" class="authorization__form-label">Username</label>
+                                    <div class="authorization__form-item">
+                                        {{ form.username }}
+                                    </div>
+                                </div>
+                                <div class="authorization__form-item-container">
+                                    <label for="" class="authorization__form-label">Password</label>
+                                    <div class="authorization__form-item">
+                                        {{ form.password }}
+                                    </div>
+                                </div>
+                                <div class="authorization-btn-container">
+                                    <button class="authorization-btn" type="submit">Log in</button>
+                                </div>
+                            </form>
+                            <p class="authorization-description">
+                                Don't have an account yet? <span class="authorization-description-link"><a href="{% url 'register' %}" class="authorization-link">Join us.</a></span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="authorization-card__image login-image">
+                        <img src="{% static 'images/Authorization/login-img.png' %}" alt="" class="authorization-card__image-img">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

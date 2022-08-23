@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block content %}
+    <!-- Create clan page -->
+    <section>
+        <div class="wrapper">
+            <div class="create-page__container">
+                <h1 class="page-title">
+                    Create Clan
+                </h1>
+                <div class="create-page__content">
+                    <form method="post">
+                        {% csrf_token %}
+                        <label for="" class="form-label">Сlan name</label>
+                        <div class="form-item">
+                            {{ form.clan_name }}
+                        </div>
+                        <label for="" class="form-label">Description</label>
+                        <div class="form-item">
+                            {{ form.clan_description }}
+                        </div>
+                        <label for="" class="form-label">Is open</label>
+                        <div class="form-item">
+                            <label class="checkbox-other">
+                                {{ form.clan_is_open }}
+                                <span></span>
+                            </label>
+                        </div>
+
+                        <div class="form-error">
+                            <p class="form-error__message">{{ error }}</p>
+                        </div>
+
+                        <div class="form-btn">
+                            <button class="btn-send" type="submit">Create</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

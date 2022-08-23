@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'font-awesome/css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/normalize.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/style.css' %}">
+    <link rel="icon" type="image/x-icon" href="{% static 'images/color-loss-icon.ico' %}">
+    <title>Color Loss</title>
+</head>
+<body>
+    <!-- Navbar -->
+    <header>
+        <div class="header">
+            <div class="wrapper">
+                <nav>
+                    <div class="nav">
+                        <div class="nav__logo">
+                            <a href="{% url 'home' %}" class="nav__logo-link">
+                                <img src="{% static 'images/Navbar/logo.png' %}" alt="Color Loss" class="nav__logo-img">
+                            </a>
+                        </div>
+                        <div class="nav__menu">
+                            <div class="nav__links">
+                                <ul class="nav__menu__links">
+                                    <li class="nav__menu__links__item">
+                                        <a href="{% url 'home' %}" class="nav__menu__link">
+                                            Game info
+                                        </a>
+                                    </li>
+                                    <li class="nav__menu__links__item">
+                                        <a href="{% url 'news' %}" class="nav__menu__link">
+                                            News
+                                        </a>
+                                    </li>
+                                    <li class="nav__menu__links__item">
+                                        <a href="{% url 'clans' %}" class="nav__menu__link">
+                                            Clans
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="nav__btn">
+                                {% if request.user.is_authenticated %}
+                                <a href="{% url 'profile' %}" class="nav__menu__link">Profile</a>
+                                {% else %}
+                                <a href="{% url 'login' %}" class="nav__btn-link">
+                                    Play now
+                                </a>
+                                {% endif %}
+                            </div>
+                        </div>
+
+                        <!-- Mobile menu -->
+                        <div class="mobile-menu">
+                            <div id="myNav" class="overlay">
+                                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                                <div class="overlay-content">
+                                    <a href="{% url 'home' %}">Game info</a>
+                                    <a href="{% url 'news' %}">News</a>
+                                    <a href="{% url 'clans' %}">Clans</a>
+                                </div>
+                            </div>
+                            <span onclick="openNav()" class="open-btn">
+                                <img src="{% static 'images/Navbar/mobile-btn.svg' %}" alt="Open" class="open-btn__icon">
+                            </span>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    {% block content %}{% endblock %}
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer">
+            <div class="wrapper">
+                <div class="footer-top">
+                    <div id="toTop" class="up-btn">
+                        <img src="{% static 'images/Footer/up-btn.svg' %}" alt="To top" class="up-btn__icon">
+                    </div>
+                    <p class="watermark">Made by <span><a href="https://github.com/kirephanov" target="_blank" class="watermark-link">Kirill Ephanov</a></span></p>
+                    <div class="footer-top__social">
+                        <a href="#" class="footer-top__social__link"><i class="fa fa-vk" aria-hidden="true"></i></a>
+                        <a href="#" class="footer-top__social__link"><i class="fa fa-telegram" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+                <div class="footer-line"></div>
+                <div class="footer-bottom">
+                    <div class="footer-bottom__content">
+                        <img src="{% static 'images/Footer/logo.png' %}" alt="" class="footer-bottom__icon">
+                        <p class="footer-bottom__description">
+                            &#169 2022 Color Loss. <br>All rights reserved.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="{% static 'js/up-btn.js' %}"></script>
+    <script src="{% static 'js/mobile-menu.js' %}"></script>
+    <script src="{% static 'js/checkbox.js' %}"></script>
+</body>
+</html>

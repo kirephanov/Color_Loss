@@ -318,6 +318,7 @@ body {
 }
 .news-card {
     max-width: 650px;
+    width: 100%;
     border: 2px solid var(--orange);
     border-radius: 4px;
     padding: 10px;

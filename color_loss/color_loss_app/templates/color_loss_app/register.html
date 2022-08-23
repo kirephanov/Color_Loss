@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <!-- Sign up -->
+    <section>
+        <div class="register-card">
+            <div class="wrapper">
+                <div class="authorization-card">
+                    <div class="authorization-card__item authorization-card__form">
+                        <p class="authorization__title">Sign up</p>
+                        <div class="authorization__form">
+                            <form method="post">
+                                {% csrf_token %}
+                                <div class="authorization__form-item-container">
+                                    <label for="" class="authorization__form-label">Username</label>
+                                    <div class="authorization__form-item">
+                                        {{ form.username }}
+                                    </div>
+                                </div>
+                                <div class="authorization__form-item-container">
+                                    <label for="" class="authorization__form-label">Email</label>
+                                    <div class="authorization__form-item">
+                                        {{ form.email }}
+                                    </div>
+                                </div>
+                                <div class="authorization__form-item-container">
+                                    <label for="" class="authorization__form-label">Password</label>
+                                    <div class="authorization__form-item">
+                                        {{ form.password1 }}
+                                    </div>
+                                </div>
+                                <div class="authorization__form-item-container">
+                                    <label for="" class="authorization__form-label">Confirm password
+                                    </label>
+                                    <div class="authorization__form-item">
+                                        {{ form.password2 }}
+                                    </div>
+                                </div>
+                                <div class="authorization-btn-container">
+                                    <button class="authorization-btn" type="submit">Sign up</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="authorization-card__image">
+                        <img src="{% static 'images/Authorization/register-img.png' %}" alt="" class="authorization-card__image-img">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
