@@ -1,15 +1,19 @@
 from cProfile import Profile
 from django.shortcuts import render, redirect
-from django.views.generic import DetailView, CreateView
+from django.views.generic import DetailView, CreateView, TemplateView
 from .forms import UserRegisterForm, UserLoginForm, ClanForm
 from django.contrib import messages
 from  django.contrib.auth import login, logout
 from django.urls import reverse_lazy
 from .models import *
 
-def index(request):
+# def index(request):
+#     '''Returns the home page'''
+#     return render(request=request, template_name='color_loss_app/index.html')
+
+class Index(TemplateView):
     '''Returns the home page'''
-    return render(request=request, template_name='color_loss_app/index.html')
+    template_name = "color_loss_app/index.html"
 
 
 def login_page(request):
